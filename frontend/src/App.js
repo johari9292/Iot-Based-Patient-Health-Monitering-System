@@ -12,7 +12,7 @@ class App extends React.Component {
     this.state = {
       response: [],
      
-      endpoint: "http://127.0.0.1:8080",
+      endpoint: "http://52.22.174.76:8080",
 
 
     }
@@ -20,8 +20,8 @@ class App extends React.Component {
   componentDidMount() {
     this.state.response=[]
     const { endpoint } = this.state;
-     let HOST = location.origin.replace(/^http/, 'socket')
-    const socket = socketIOClient(HOST);
+//      let HOST = location.origin.replace(/^http/, 'socket')
+    const socket = socketIOClient(endpoint);
 
     socket.on("FromAPI", data => this.setState({
       response: this.state.response.concat(data)
