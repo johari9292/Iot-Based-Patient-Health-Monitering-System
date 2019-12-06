@@ -97,7 +97,7 @@ app
   .route('/get/:id')
   .get(PHMSController.getphmsbyid)
 app
-  .route('/adddata/?temp=/:temp/&heartbeat=/:heartbeat/&bp=/:bp/&/ecg=/:ecg')
+  .route('/adddata/temp=/:temp/&heartbeat=/:heartbeat/&bp=/:bp/&/ecg=/:ecg')
   .get(PHMSController.addphmsparam)
 app
   .route('/add')
