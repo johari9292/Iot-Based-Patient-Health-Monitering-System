@@ -20,8 +20,8 @@ class App extends React.Component {
   componentDidMount() {
     this.state.response=[]
     const { endpoint } = this.state;
-
-    const socket = socketIOClient(endpoint);
+     let HOST = location.origin.replace(/^http/, 'socket')
+    const socket = socketIOClient(HOST);
 
     socket.on("FromAPI", data => this.setState({
       response: this.state.response.concat(data)
