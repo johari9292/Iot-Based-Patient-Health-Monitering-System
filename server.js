@@ -90,7 +90,7 @@ MongoClient.connect(MONGO_URI , { useNewUrlParser: true }, (error, client) => {
 
 
 app
-  .route('/get')
+  .route('/getdata')
   .get(PHMSController.getphms)
 
 app
