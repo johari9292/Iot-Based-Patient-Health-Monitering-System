@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import axios from 'axios'
 import socketIOClient from "socket.io-client";
 import {  Navbar,  NavbarBrand, Nav,NavItem,NavLink,Container} from 'reactstrap';
 import Grid from '@material-ui/core/Grid';
@@ -18,21 +19,25 @@ class App extends React.Component {
     }
   }
   componentDidMount() {
-    this.state.response=[]
-    const { endpoint } = this.state;
-//      let HOST = location.origin.replace(/^http/, 'socket')
-    const socket = socketIOClient(endpoint);
+//     this.state.response=[]
+//     const { endpoint } = this.state;
+// //      let HOST = location.origin.replace(/^http/, 'socket')
+//     const socket = socketIOClient(endpoint);
 
-    socket.on("FromAPI", data => this.setState({
-      response: this.state.response.concat(data)
+//     socket.on("FromAPI", data => this.setState({
+//       response: this.state.response.concat(data)
 
+//     })
+
+//     );
+//     socket.on("mydata", data => this.setState({
+//       response: data
+//     }))
+axios.get(`https:iotphms.herokuapp.com/get` )
+    .then(res => {
+      const tasks = res.data;
+      this.setState({ response:tasks });
     })
-
-    );
-    socket.on("mydata", data => this.setState({
-      response: data
-    }))
-
 
 
   }
