@@ -12,7 +12,7 @@ class App extends React.Component {
     this.state = {
       response: [],
      
-      endpoint: "https://52.22.174.76:80",
+      endpoint: "https://iotphms.herokussl.com:80",
 
 
     }
