@@ -33,7 +33,7 @@ class App extends React.Component {
 //     socket.on("mydata", data => this.setState({
 //       response: data
 //     }))
-axios.get(`https:iotphms.herokuapp.com:80/get` )
+axios.get('https://iotphms.herokuapp.com/getdata' )
     .then(res => {
       const tasks = res.data;
       this.setState({ response:tasks });
