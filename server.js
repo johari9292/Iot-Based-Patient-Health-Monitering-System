@@ -79,11 +79,11 @@ var database, collection;
 //     // })
 
 
-    socket.on("disconnect", () => {
-      console.log("Client disconnected");
-    });
-  });
-})
+//     socket.on("disconnect", () => {
+//       console.log("Client disconnected");
+//     });
+//   });
+// })
 
 
 
