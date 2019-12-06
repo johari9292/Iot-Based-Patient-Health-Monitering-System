@@ -35,48 +35,48 @@ var database, collection;
 
 
 
-MongoClient.connect(MONGO_URI , { useNewUrlParser: true }, (error, client) => {
-  if (error) {
-    throw error;
-  }
-  database = client.db(DATABASE_NAME);
-  collection = database.collection("phms");
-  console.log("Connected to `" + DATABASE_NAME + "`!");
+// MongoClient.connect(MONGO_URI , { useNewUrlParser: true }, (error, client) => {
+//   if (error) {
+//     throw error;
+//   }
+//   database = client.db(DATABASE_NAME);
+//   collection = database.collection("phms");
+//   console.log("Connected to `" + DATABASE_NAME + "`!");
 
-  let interval
-  io.on("connection", socket => {
-    console.log("New client connected");
+//   let interval
+//   io.on("connection", socket => {
+//     console.log("New client connected");
     
-    if (!socket.sentMydata) {
-      collection.find({}).sort({ _id: -1 }).limit(1).toArray(function (err, result) {
-       if (err) throw err;
-        socket.emit("mydata", (result));
-        console.log("data",result)
+//     if (!socket.sentMydata) {
+//       collection.find({}).sort({ _id: -1 }).limit(1).toArray(function (err, result) {
+//        if (err) throw err;
+//         socket.emit("mydata", (result));
+//         console.log("data",result)
 
-      })
-      socket.sentMydata = true;
-    }
-    if (interval) {
-      clearInterval(interval);
-    }
-    interval = setInterval(() =>{ 
-      collection.find({}).sort({ _id: -1 }).limit(1).toArray(function (err, result) {
-        if (err) throw err;
+//       })
+//       socket.sentMydata = true;
+//     }
+//     if (interval) {
+//       clearInterval(interval);
+//     }
+//     interval = setInterval(() =>{ 
+//       collection.find({}).sort({ _id: -1 }).limit(1).toArray(function (err, result) {
+//         if (err) throw err;
 
-        socket.emit("FromAPI", (result));
+//         socket.emit("FromAPI", (result));
 
-      })
-    }, 10);
+//       })
+//     }, 10);
      
-    // const changeStream = collection.watch()
-    // changeStream.on('change', function (change) {
-    //   collection.find({}).sort({ _id: -1 }).limit(1).toArray(function (err, result) {
-    //     if (err) throw err;
+//     // const changeStream = collection.watch()
+//     // changeStream.on('change', function (change) {
+//     //   collection.find({}).sort({ _id: -1 }).limit(1).toArray(function (err, result) {
+//     //     if (err) throw err;
 
-    //     socket.emit("FromAPI", (result));
+//     //     socket.emit("FromAPI", (result));
 
-    //   })
-    // })
+//     //   })
+//     // })
 
 
     socket.on("disconnect", () => {
