@@ -1,10 +1,11 @@
 const cors = require('cors');
+const dotenv = require("dotenv").config()
 const http = require("http");
 var config = require("./db/config");
 const express = require("express");
 const bodyParser = require("body-parser");
 const PHMSController = require("./apis/api")
-const port = process.env.PORT || 3201;
+const port = process.env.PORT || 8080;
 
 const socketIo = require("socket.io");
 const app = express();
@@ -14,14 +15,14 @@ const ObjectId = require("mongodb").ObjectID;
 const MongoClient = require('mongodb').MongoClient;
 const DATABASE_NAME = "test";
 // const DATABASE_NAME = "heroku_1kkl8s2q";
-const uri = "mongodb+srv://joharibalti1996:is119821885@cluster0-jjj5l.mongodb.net/test?retryWrites=true&w=majority";
+// const uri = "mongodb+srv://joharibalti1996:is119821885@cluster0-jjj5l.mongodb.net/test?retryWrites=true&w=majority";
 
-// const MONGO_URI = "mongodb://joharibalti:is119821885@ds227352.mlab.com:27352/heroku_1kkl8s2q"
+const MONGO_URI = "mongodb://joharibalti:is119821885@ds227352.mlab.com:27352/heroku_1kkl8s2q"
 app.use(cors());
 app.options('*', cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-const dotenv = require("dotenv").config()
+
 const path = require("path")
 
 // ... other app.use middleware 
@@ -34,7 +35,7 @@ var database, collection;
 
 
 
-MongoClient.connect(uri, { useNewUrlParser: true }, (error, client) => {
+MongoClient.connect(MONGO_URI , { useNewUrlParser: true }, (error, client) => {
   if (error) {
     throw error;
   }
