@@ -5,7 +5,7 @@ var config = require("./db/config");
 const express = require("express");
 const bodyParser = require("body-parser");
 const PHMSController = require("./apis/api")
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 80;
 
 const socketIo = require("socket.io");
 const app = express();
