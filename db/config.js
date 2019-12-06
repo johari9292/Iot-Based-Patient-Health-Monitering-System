@@ -3,7 +3,9 @@ const mongoose = require("mongoose");
 
 // const connectionstr =  "mongodb://localhost:27017/local";
 const connectionstr = "mongodb+srv://joharibalti1996:is119821885@cluster0-jjj5l.mongodb.net/test?retryWrites=true&w=majority";
+// const MONGO_URI = "mongodb://joharibalti:is119821885@ds227352.mlab.com:27352/heroku_1kkl8s2q"
 
+// const connectionstr = "mongodb://joharibalti:is119821885@ds249008.mlab.com:49008/heroku_046kd2pl"
 
 
 mongoose.connect(connectionstr,{useCreateIndex: true, useNewUrlParser: true }).then(

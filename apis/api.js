@@ -40,4 +40,25 @@ exports.addphms = (req, res)=> {
         });
 }
 
-
+exports.addphmsparam = (req, res)=> {
+    let ecgs = req.params.ecg;
+     let bps = req.params.bp;
+     let heartbeats = req.params.heartbeat
+     let temps = req.params.temp
+     PHMS.insertMany({
+        
+        temp: temps, 
+        heartbeat: heartbeats,
+        ecg: ecgs,
+        bp: bps,
+        
+       
+     }).then(phms => {
+             res.status(200).json({'PHMS': 'PHMS added successfully'+ "ecg:" +ecgs + "bp:"+bps+"heartbeat:"+heartbeats + "temp:"+temps});
+            
+         })
+         .catch(err => {
+             res.status(400).send('adding new PHMS failed');
+         });
+ }
+ 
