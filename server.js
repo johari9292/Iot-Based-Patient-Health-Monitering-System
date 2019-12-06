@@ -110,7 +110,7 @@ app
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
 });
-server.listen(port, '0.0.0.0', function() {
+server.listen(port, function() {
   console.log('Listening to port:  ' + port);
 });
 // server.listen(port, () => {
