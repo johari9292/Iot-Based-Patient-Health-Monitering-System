@@ -12,7 +12,6 @@ let PHMS = new Schema({
     },
     bp:{
         type:String
-
     },
    date:{
         type:Date,
