@@ -1,21 +1,21 @@
 const cors = require('cors');
-const dotenv = require("dotenv").config()
+// const dotenv = require("dotenv").config()
 const http = require("http");
 var config = require("./db/config");
 const express = require("express");
 const bodyParser = require("body-parser");
 const PHMSController = require("./apis/api")
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 8080;
 const index = require("./routes/index");
 const socketIo = require("socket.io");
 const app = express();
-app.use(index);
+// app.use(index);
 const server = http.createServer(app);
 const io = socketIo(server);
 const ObjectId = require("mongodb").ObjectID;
 const MongoClient = require('mongodb').MongoClient;
 const DATABASE_NAME = "test";
-const DATABASE_NAME = "heroku_1kkl8s2q";
+
 const MONGO_URI = "mongodb+srv://joharibalti1996:is119821885@cluster0-jjj5l.mongodb.net/test?retryWrites=true&w=majority";
 
 // const MONGO_URI = "mongodb://joharibalti:is119821885@ds227352.mlab.com:27352/heroku_1kkl8s2q"
@@ -108,9 +108,9 @@ app
   .route('/delete/:id')
   .delete(PHMSController.deletephms) 
 
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
-});
+// app.get("*", (req, res) => {
+//     res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
+// });
 server.listen(port, function() {
   console.log('Listening to port:  ' + port);
 });
