@@ -11,7 +11,7 @@ class Realtime extends Component {
       dateuniqe: [],
       dataarr: [],
       date: [],
-      endpoint: "http://127.0.0.1:3201",
+      endpoint: "https://iotphms.herokuapp.com",
 
 
     }
