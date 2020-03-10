@@ -55,7 +55,7 @@ exports.addphmsparam = (req, res)=> {
        
      }).then(phms => {
              res.status(200).json({'PHMS': 'PHMS added successfully'+ "ecg:" +ecgs + "bp:"+bps+"heartbeat:"+heartbeats + "temp:"+temps});
-            
+            console.log("phms added")
          })
          .catch(err => {
              res.status(400).send('adding new PHMS failed');
