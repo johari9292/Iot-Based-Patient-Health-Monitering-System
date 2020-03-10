@@ -108,9 +108,9 @@ app
   .route('/delete/:id')
   .delete(PHMSController.deletephms) 
 
-// app.get("*", (req, res) => {
-//     res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
-// });
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
+});
 server.listen(port, function() {
   console.log('Listening to port:  ' + port);
 });
