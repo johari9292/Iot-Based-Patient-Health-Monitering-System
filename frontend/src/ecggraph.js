@@ -16,24 +16,24 @@ class Realtime extends Component {
 
     }
   }
-  componentDidMount() {
-    const { endpoint } = this.state;
+  // componentDidMount() {
+  //   const { endpoint } = this.state;
 
-    const socket = socketIOClient(endpoint);
+  //   const socket = socketIOClient(endpoint);
 
-    socket.on("FromAPI", data => this.setState({
-      response: this.state.response.concat(data)
+  //   socket.on("FromAPI", data => this.setState({
+  //     response: this.state.response.concat(data)
 
-    })
+  //   })
 
-    );
-    socket.on("mydata", data => this.setState({
-      response: data
-    }))
+  //   );
+  //   socket.on("mydata", data => this.setState({
+  //     response: data
+  //   }))
 
 
 
-  }
+  // }
 
 
 
