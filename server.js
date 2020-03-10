@@ -91,4 +91,7 @@ app
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
 });
-server.listen(port, () => console.log(`Listening on port ${port}`))
+
+http.listen(process.env.PORT || 3000, function() {
+  // ...
+})
