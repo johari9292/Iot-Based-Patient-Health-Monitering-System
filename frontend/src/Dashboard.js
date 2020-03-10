@@ -3,10 +3,9 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import socketIOClient from "socket.io-client";
 
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
+
 import Graph from './ecggraph'
-import Signup from './Signup'
+
 class App extends React.Component {
   
   constructor(props) {
@@ -253,7 +252,7 @@ class App extends React.Component {
             </div>
           </div>
         </div>
-        <Signup/>
+        
       </div>
               
             
