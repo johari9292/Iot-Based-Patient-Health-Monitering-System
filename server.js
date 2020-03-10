@@ -6,9 +6,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const PHMSController = require("./apis/api")
 const port = process.env.PORT || 80;
-
+const index = require("./routes/index");
 const socketIo = require("socket.io");
 const app = express();
+app.use(index);
 const server = http.createServer(app);
 const io = socketIo(server);
 const ObjectId = require("mongodb").ObjectID;
